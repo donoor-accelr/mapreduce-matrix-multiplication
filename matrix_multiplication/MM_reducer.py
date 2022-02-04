@@ -1,35 +1,12 @@
 #!/usr/bin/env python3
 
 import sys
-import argparse
 
 
 NUMBER_OF_COLUMNS_IN_A = 3
 
 
-def argument_parser():
-    """
-        Parse the desired input from the user.
-
-    Expected arguments:
-    --mapper_output:    (str) Path to Mapper output file path
-    Returns
-    -------
-    input_parser.parse_args
-    """
-    input_parser = argparse.ArgumentParser(prog='Matrix Multiplication Mapper')
-    input_parser.add_argument('--mapper_output',
-                              type=str,
-                              default='../data/mapper_output.txt',
-                              help='Path to Mapper output file path')
-    return input_parser.parse_args()
-
-
 def main():
-    parsed_arguments = argument_parser()
-
-    # with open(parsed_arguments.mapper_output) as f:
-    #     key_value_pairs = f.readlines()
 
     current_key = None
     total_sum = 0.0
@@ -57,9 +34,9 @@ def main():
                 value_dict[replicate_key].append(element_value)
         else:
             if current_key:
-                for i in range(NUMBER_OF_COLUMNS_IN_A):
+                for i in range(1, NUMBER_OF_COLUMNS_IN_A + 1):
                     if (i in value_dict) and (len(value_dict[i]) == 2):
-                        total_sum += value_dict[i][0] * value_dict[i][1]
+                        total_sum = total_sum + value_dict[i][0] * value_dict[i][1]
                 print('({},{}),{}'.format(current_key[0],
                                           current_key[1],
                                           total_sum,
@@ -72,9 +49,9 @@ def main():
             total_sum = 0.0
 
     if current_key:
-        for j in range(NUMBER_OF_COLUMNS_IN_A):
+        for j in range(1, NUMBER_OF_COLUMNS_IN_A + 1):
             if (j in value_dict) and (len(value_dict[j]) == 2):
-                total_sum += value_dict[j][0] * value_dict[j][1]
+                total_sum = total_sum + value_dict[j][0] * value_dict[j][1]
         print('({},{}),{}'.format(current_key[0],
                                   current_key[1],
                                   total_sum,
