@@ -2,15 +2,18 @@
 
 import sys
 
-NUMBER_OF_ROWS_IN_A = 2
-NUMBER_OF_COLUMNS_IN_B = 2
+# NUMBER_OF_ROWS_IN_A = int(sys.argv[1])
+# NUMBER_OF_COLUMNS_IN_B = int(sys.argv[2])
+
+NUMBER_OF_ROWS_IN_A = 1000
+NUMBER_OF_COLUMNS_IN_B = 1000
 
 
 def main():
     for line in sys.stdin:
 
         line = line.strip()
-        row_number, column_number, matrix_name, value = line.split(" ")
+        matrix_name, row_number, column_number, value = line.split(" ")
 
         if matrix_name == "A":
             for i in range(1, NUMBER_OF_COLUMNS_IN_B+ 1):

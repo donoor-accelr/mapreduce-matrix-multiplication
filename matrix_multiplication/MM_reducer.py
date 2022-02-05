@@ -3,7 +3,9 @@
 import sys
 
 
-NUMBER_OF_COLUMNS_IN_A = 3
+# NUMBER_OF_COLUMNS_IN_A = int(sys.argv[1])
+
+NUMBER_OF_COLUMNS_IN_A = 500
 
 
 def main():
